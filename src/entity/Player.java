@@ -16,15 +16,12 @@ public class Player extends Entity {
     public final int screenX;
     public final int screenY;
 
+    int counter2 = 0;
+
     public Player(GamePanel gp, keyHandler keyH) {
         this.gp = gp;
         this.keyH = keyH;
 
-        // Berechnung der Startposition des Spielers
-        worldX = gp.tileSize * 23 - (gp.tileSize / 2);
-        worldY = gp.tileSize * 21 - (gp.tileSize / 2);
-        speed = 4;
-        direction = "down";
 
         // Berechnung der Bildschirmposition
         screenX = gp.screenWidth / 2 - gp.tileSize / 2;
@@ -37,8 +34,10 @@ public class Player extends Entity {
         solidArea.width = 48;
         solidArea.height = 48;
 
+        setDefaultValues();
         getPlayerImage();
     }
+
 
     public void getPlayerImage() {
         try {
@@ -54,7 +53,13 @@ public class Player extends Entity {
             e.printStackTrace();
         }
     }
+    public void setDefaultValues () {
 
+        worldX = gp.tileSize * 23 - (gp.tileSize /2);
+        worldY = gp.tileSize * 21 - (gp.tileSize /2);
+        speed = 4;
+        direction = "down";
+    }
     public void update() {
         if (keyH.upPressed || keyH.downPressed || keyH.leftPressed || keyH.rightPressed) {
             if (keyH.upPressed) {
@@ -68,25 +73,17 @@ public class Player extends Entity {
             }
 
 
-            //check tile collisoin
+            //check tile collision
             collisionOn = false;
             gp.cChecker.checkTile(this);
 
             // if collision is flase player can move
-            if(collisionOn == false) {
-                switch(direction){
-                    case "up":
-                        worldY -= speed;
-                        break;
-                    case "down":
-                        worldY += speed;
-                        break;
-                    case "left":
-                        worldX -= speed;
-                        break;
-                    case "right":
-                        worldX += speed;
-                        break;
+            if (collisionOn == false) {
+                switch (direction) {
+                    case "up": worldY -= speed;break;
+                    case "down":worldY += speed;break;
+                    case "left":worldX -= speed;break;
+                    case "right":worldX += speed;break;
                 }
             }
             spriteCounter++;
