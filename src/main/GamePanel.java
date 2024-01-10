@@ -49,6 +49,10 @@ public class GamePanel extends JPanel implements Runnable{
         this.setFocusable(true);
     }
 
+    public void setupGame(){
+        aSetter.setObject();
+    }
+
     public void startGameThread() {
 
         gameThread = new Thread(this);
@@ -132,7 +136,18 @@ public class GamePanel extends JPanel implements Runnable{
 
         Graphics2D g2 = (Graphics2D)g;
 
+
+        //tile
         tileM.draw(g2);
+
+        //OBJ
+        for (int i = 0; i < obj.length; i++){
+            if(obj[i] != null) {
+                obj[i].draw(g2, this);
+            }
+        }
+
+        //player
         player.draw(g2);
 
 
