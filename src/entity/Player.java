@@ -27,6 +27,8 @@ public class Player extends Entity {
         screenX = gp.screenWidth / 2 - gp.tileSize / 2;
         screenY = gp.screenHeight / 2 - gp.tileSize / 2;
 
+
+
         setDefaultValues();
         getPlayerImage();
 

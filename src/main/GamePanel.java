@@ -1,6 +1,7 @@
 package main;
 
 import entity.Player;
+import object.SuperObject;
 import tile.TileManager;
 import javax.swing.*;
 import java.awt.*;
@@ -35,11 +36,11 @@ public class GamePanel extends JPanel implements Runnable{
     Thread gameThread;
 
     public CollisionChecker cChecker = new CollisionChecker(this);
+    public AssetSetter aSetter = new AssetSetter(this);
 
    public Player player = new Player(this,keyH);
+   public SuperObject[] obj = new SuperObject[10];
 
-
-    // set players default position
     public GamePanel () {
         this.setPreferredSize(new Dimension(screenWidth, screenHeight));
         this.setBackground(Color.BLACK);
