@@ -33,6 +33,8 @@ public class Player extends Entity {
         getPlayerImage();
 
         solidArea = new Rectangle(8, 16, 32, 32);
+        solidAreaDefaultX = solidArea.x;
+        solidAreaDefaultY = solidArea.y;
     }
 
 
@@ -73,6 +75,9 @@ public class Player extends Entity {
             //check tile collision
             collisionOn = false;
             gp.cChecker.checkTile(this);
+
+            //check obj colllsioion
+        int objIndex = gp.cChecker.checkObject(this, true);
 
             // if collision is flase player can move
             if (collisionOn == false) {
