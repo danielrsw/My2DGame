@@ -116,15 +116,27 @@ public class CollisionChecker {
                 switch (entity.direction){
                     case "up":
                         entity.solidArea.y -= entity.speed;
+                        if (entity.solidArea.intersects(gp.obj[i].solidArea)){
+                            System.out.println("up collision");
+                        }
                         break;
                     case "down":
                         entity.solidArea.y += entity.speed;
+                        if (entity.solidArea.intersects(gp.obj[i].solidArea)){
+                            System.out.println("down collision");
+                        }
                         break;
                     case "left":
                         entity.solidArea.x -= entity.speed;
+                        if (entity.solidArea.intersects(gp.obj[i].solidArea)){
+                            System.out.println("left collision");
+                        }
                         break;
                     case "right":
                         entity.solidArea.x += entity.speed;
+                        if (entity.solidArea.intersects(gp.obj[i].solidArea)){
+                            System.out.println("rguht collision");
+                        }
                         break;
                 }
 
