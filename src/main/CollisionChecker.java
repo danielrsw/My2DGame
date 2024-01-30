@@ -61,7 +61,7 @@ public class CollisionChecker {
     }
     public int checkObject(Entity entity, boolean player){
         int index = 999;
-        for(int i = 1; i < gp.obj.length; i++){
+        for(int i = 1; i < gp.obj.length; i++){ ddfgdf
             if(gp.obj[i] !=null) {
                 //entity solid area position
                 entity.solidArea.x = entity.worldX + entity.solidArea.x;
