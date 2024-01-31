@@ -80,11 +80,14 @@ public class Player extends Entity {
             collisionOn = false;
             gp.cChecker.checkTile(this);
 
+
+
             //check obj colllsioion
-        int objIndex = gp.cChecker.checkObject(this, true);
+            int objIndex = gp.cChecker.checkObject(this, true);
+
 
             // if collision is flase player can move
-            if (collisionOn == false) {
+            if (!collisionOn) {
                 switch (direction) {
                     case "up": worldY -= speed;break;
                     case "down":worldY += speed;break;
