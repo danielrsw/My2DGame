@@ -84,7 +84,7 @@ public class Player extends Entity {
 
             //check obj colllsioion
             int objIndex = gp.cChecker.checkObject(this, true);
-
+            pickUpObject(objIndex);
 
             // if collision is flase player can move
             if (!collisionOn) {
@@ -104,6 +104,12 @@ public class Player extends Entity {
                 }
                 spriteCounter = 0;
             }
+        }
+    }
+
+    public void pickUpObject(int i) {
+        if (i != 999)   {
+            gp.obj[i] = null;
         }
     }
 
